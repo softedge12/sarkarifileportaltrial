@@ -1,10 +1,11 @@
- /* General Styles */
+/* General Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #e3f2fd, #ffffff);
   overflow-x: hidden;
   padding-top: 60px; /* Adjust padding to avoid navbar overlap */
+  box-sizing: border-box;
 }
 
 /* Navigation Menu */
@@ -69,14 +70,11 @@ body {
 /* Section Styles */
 .section {
   width: 100%;
-  min-height: 100vh; /* पूरी स्क्रीन के हिसाब से ऊँचाई */
   padding: 20px;
   background: white;
-  display: flex;  /* फ्लेक्सबॉक्स का उपयोग */
-  flex-direction: column;  /* कंटेंट को वर्टिकली व्यवस्थित करने के लिए */
-  justify-content: center;  /* वर्टिकली सेंटर */
-  align-items: center;  /* होरिजॉन्टली सेंटर */
+  overflow-y: auto;
   text-align: center;
+  position: relative;
 }
 
 .section h1 {
@@ -96,6 +94,7 @@ iframe {
   width: 100%;
   height: 800px;
   border: none;
+  box-sizing: border-box;
 }
 
 /* Responsive Design */
@@ -115,5 +114,28 @@ iframe {
 
   .section p {
     font-size: 1rem;
+  }
+
+  /* Ensure the body and content fit within the screen */
+  body {
+    padding: 0 10px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  iframe {
+    height: 600px; /* Adjust iframe size on mobile */
+  }
+  
+  /* Prevent any content from overflowing */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Ensure dropdowns take up full width on mobile */
+  .dropdown-container select {
+    width: 100%;
   }
 }
