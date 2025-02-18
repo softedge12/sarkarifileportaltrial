@@ -102,6 +102,7 @@ body {
 
 /* Add responsiveness to modal */
 /* Ensure modal has a clean and centered look on all screens */
+/* Modal dialog styling */
 .modal-dialog {
     max-width: 100%;
     width: 90%;
@@ -109,22 +110,23 @@ body {
     padding: 20px;
 }
 
-/* Modal body styling */
+/* Make modal body scrollable */
 .modal-body {
-    max-height: 400px;
-    overflow-y: auto; /* Allow scroll when content exceeds */
+    max-height: 300px;    /* Adjust max height for better control */
+    overflow-y: auto;     /* Allow vertical scrolling when content overflows */
     padding: 10px;
 }
 
 /* List items should wrap text and not overflow */
 .list-group-item {
-    word-wrap: break-word; /* Wrap long page names */
-    white-space: normal;   /* Prevent text overflow */
-    padding: 15px;         /* Padding to make content look more spacious */
-    font-size: 16px;       /* Larger text for better readability */
+    word-wrap: break-word;  /* Wrap long text */
+    white-space: normal;    /* Prevent text overflow */
+    padding: 15px;          /* Space out items */
+    font-size: 16px;        /* Make text larger for readability */
+    line-height: 1.5;       /* Better spacing for multi-line items */
 }
 
-/* Styling for the modal header */
+/* Modal Header Styling */
 .modal-header {
     background-color: #007bff;
     color: white;
@@ -132,13 +134,13 @@ body {
     border-radius: 8px 8px 0 0;
 }
 
-/* Styling for the modal title */
+/* Modal title styling */
 .modal-title {
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Button inside modal for going to page */
+/* Button styling in modal */
 .btn-primary {
     background-color: #007bff;
     border: none;
@@ -152,7 +154,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Ensure modal footer buttons are aligned properly */
+/* Footer button styling */
 .modal-footer button {
     width: 100%;
     margin-top: 10px;
@@ -161,28 +163,22 @@ body {
     border-radius: 4px;
 }
 
-/* Enhance the look of the list group */
-.list-group {
-    padding-left: 0;
-    margin-bottom: 0;
-}
-
-/* Small adjustments for the close button */
+/* Close button styling */
 .btn-close {
     background-color: transparent;
     border: none;
     font-size: 18px;
 }
 
-/* Make modal responsive for smaller screens */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
     .modal-dialog {
         width: 95%;
     }
     .list-group-item {
-        font-size: 14px; /* Smaller text on smaller screens */
+        font-size: 14px;
     }
     .modal-footer button {
-        padding: 12px; /* Adjust button padding on smaller screens */
+        padding: 12px;
     }
 }
