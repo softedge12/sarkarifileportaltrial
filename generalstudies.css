@@ -123,6 +123,6 @@ iframe {
 
   /* Make sure iframe fits within screen */
   iframe {
-    height: 400px; /* Adjust iframe height for mobile */
+    height: 800px; /* Adjust iframe height for mobile */
   }
 }
