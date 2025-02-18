@@ -1,11 +1,10 @@
-/* General Styles */
+ /* General Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #e3f2fd, #ffffff);
   overflow-x: hidden;
   padding-top: 60px; /* Adjust padding to avoid navbar overlap */
-  box-sizing: border-box;
 }
 
 /* Navigation Menu */
@@ -74,7 +73,7 @@ body {
   background: white;
   overflow-y: auto;
   text-align: center;
-  position: relative;
+  position: relative; /* Remove position absolute */
 }
 
 .section h1 {
@@ -94,7 +93,6 @@ iframe {
   width: 100%;
   height: 800px;
   border: none;
-  box-sizing: border-box;
 }
 
 /* Responsive Design */
@@ -114,28 +112,5 @@ iframe {
 
   .section p {
     font-size: 1rem;
-  }
-
-  /* Ensure the body and content fit within the screen */
-  body {
-    padding: 0 10px;
-  }
-
-  .section {
-    padding: 10px;
-  }
-
-  iframe {
-    height: 600px; /* Adjust iframe size on mobile */
-  }
-  
-  /* Prevent any content from overflowing */
-  * {
-    box-sizing: border-box;
-  }
-
-  /* Ensure dropdowns take up full width on mobile */
-  .dropdown-container select {
-    width: 100%;
   }
 }
