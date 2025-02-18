@@ -4,7 +4,7 @@ body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom, #e3f2fd, #ffffff);
   overflow-x: hidden; /* Prevent horizontal overflow */
-  padding-top: 60px; /* Adjust padding to avoid navbar overlap */
+  padding-top: 80px; /* Increased padding to give more space below the navbar */
 }
 
 /* Navigation Menu */
@@ -71,7 +71,7 @@ body {
   width: 100%;
   box-sizing: border-box; /* Ensures padding doesn't overflow */
   padding: 0 15px; /* Adjust horizontal padding */
-  margin: 0; /* Ensure no margin */
+  margin-top: 20px; /* Add space from the top to ensure content isn't hidden under the navbar */
   background: white;
   overflow-y: auto;
   text-align: center;
