@@ -1,4 +1,4 @@
- /* General Styles */
+/* General Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -69,11 +69,12 @@ body {
 /* Section Styles */
 .section {
   width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't overflow */
   padding: 20px;
   background: white;
   overflow-y: auto;
   text-align: center;
-  position: relative; /* Remove position absolute */
+  position: relative;
 }
 
 .section h1 {
@@ -112,5 +113,10 @@ iframe {
 
   .section p {
     font-size: 1rem;
+  }
+
+  /* Make sure iframe fits within screen */
+  iframe {
+    height: 400px; /* Adjust iframe height for mobile */
   }
 }
