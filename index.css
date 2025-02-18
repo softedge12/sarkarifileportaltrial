@@ -92,8 +92,3 @@ body {
     z-index: 1000;
 }
 
-#pageList span {
-    word-wrap: break-word;
-    white-space: normal;
-}
-
