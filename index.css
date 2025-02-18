@@ -101,35 +101,18 @@ body {
 
 
 /* Add responsiveness to modal */
-/* Modal Dialog */
-.modal-dialog {
-    max-width: 100%;
-    width: 90%;
-    margin: auto;
-}
-
 /* Modal Body */
 .modal-body {
-    max-height: 400px;    /* Set max-height to keep content contained */
-    overflow-y: auto;     /* Enable vertical scrolling if content overflows */
+    max-height: 400px;   /* Keeps the modal within a reasonable height */
+    overflow-y: auto;    /* Allows scrolling if the content overflows vertically */
+    word-wrap: break-word; /* Wraps the words within the list items */
+    overflow-wrap: break-word; /* Ensure long words break */
     padding: 10px;
-    word-wrap: break-word;  /* Wrap text in the content */
-    white-space: normal;    /* Allow text to wrap */
+    word-break: break-word; /* Prevent horizontal overflow */
+    white-space: normal;   /* Ensure text can wrap across multiple lines */
 }
 
-/* List items styling */
-.list-group-item {
-    word-wrap: break-word;  /* Wrap text inside the list */
-    white-space: normal;    /* Ensure text wraps */
-    padding: 10px 15px;
-    font-size: 16px;
-    line-height: 1.5;
-    display: block;         /* Ensure list items take up the full width */
-    overflow: hidden;       /* Prevent any unwanted horizontal overflow */
-    word-break: break-word; /* Prevent text overflow */
-}
-
-/* Modal Header Styling */
+/* Modal Header */
 .modal-header {
     background-color: #007bff;
     color: white;
@@ -146,18 +129,23 @@ body {
     border-radius: 4px;
 }
 
-/* Button Styling */
-.btn-primary {
-    background-color: #007bff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
+/* List items styling */
+.list-group-item {
+    word-wrap: break-word;   /* Wrap long text within list items */
+    white-space: normal;     /* Ensure text wraps as normal */
+    padding: 10px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    display: block;          /* Makes sure the list item takes up the full width */
+    overflow: hidden;        /* Prevents horizontal overflow */
+    word-break: break-word;  /* Breaks long words to prevent overflow */
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+/* Modal Dialog */
+.modal-dialog {
+    max-width: 100%;
+    width: 90%;
+    margin: auto;
 }
 
 /* Mobile Responsiveness */
