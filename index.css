@@ -93,27 +93,96 @@ body {
 }
 
 
+
+
+
+
+
+
+
 /* Add responsiveness to modal */
+/* Ensure modal has a clean and centered look on all screens */
 .modal-dialog {
     max-width: 100%;
-    width: 90%; /* Adjust width to fit smaller screens */
+    width: 90%;
+    margin: auto;
+    padding: 20px;
 }
 
+/* Modal body styling */
 .modal-body {
-    max-height: 400px; /* Set a maximum height */
-    overflow-y: auto; /* Allow scrolling if content overflows */
+    max-height: 400px;
+    overflow-y: auto; /* Allow scroll when content exceeds */
+    padding: 10px;
 }
 
-/* Adjust page list items */
+/* List items should wrap text and not overflow */
 .list-group-item {
-    word-wrap: break-word; /* Ensure long text wraps within the container */
-    white-space: normal; /* Prevent text from being cut off */
+    word-wrap: break-word; /* Wrap long page names */
+    white-space: normal;   /* Prevent text overflow */
+    padding: 15px;         /* Padding to make content look more spacious */
+    font-size: 16px;       /* Larger text for better readability */
 }
 
-/* Make sure buttons inside the modal are mobile-friendly */
+/* Styling for the modal header */
+.modal-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Styling for the modal title */
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Button inside modal for going to page */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Ensure modal footer buttons are aligned properly */
 .modal-footer button {
     width: 100%;
     margin-top: 10px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
 }
 
+/* Enhance the look of the list group */
+.list-group {
+    padding-left: 0;
+    margin-bottom: 0;
+}
 
+/* Small adjustments for the close button */
+.btn-close {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+}
+
+/* Make modal responsive for smaller screens */
+@media (max-width: 768px) {
+    .modal-dialog {
+        width: 95%;
+    }
+    .list-group-item {
+        font-size: 14px; /* Smaller text on smaller screens */
+    }
+    .modal-footer button {
+        padding: 12px; /* Adjust button padding on smaller screens */
+    }
+}
