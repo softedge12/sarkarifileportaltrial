@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Section</title>
+  <link rel="stylesheet" href="generalstudies.css">
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="section">
+    <h1>Quiz Section</h1>
+    <p>Test your knowledge with our fun and interactive quizzes!</p>
+    <iframe src="https://softedge12.github.io/quizdropdowntrial/" width="100%" height="800" style="border:1px solid black;"></iframe>
+  </div>
+ <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database-compat.js"></script>
+
+  <!-- Firebase Config -->
+  <script src="firebase.js"></script>
+
+  <script>
+    // Initialize Firebase Authentication listener
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        checkExpiry(user);
+        monitorExpiry(user);
+      } else {
+        location.replace("index.html");
+      }
+    });
+
+    // Logout function
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        location.replace("index.html");
+      });
+    }
+
+    // Check for account expiry
+function checkExpiry(user) {
+  const userEmail = user.email;
+
+  firebase.database().ref("users").orderByChild("email").equalTo(userEmail).once("value")
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        snapshot.forEach(userData => {
+          let pages = userData.val().pages || []; // Ensure pages exist or use empty array
+          const currentDate = new Date();
+
+          // Iterate through the pages and check expiry for each page
+          pages.forEach(pageData => {
+            const expiryDate = new Date(pageData.expiryDate);
+            const pageName = pageData.redirectPage;
+
+            // If page is expired
+            if (currentDate > expiryDate) {
+              alert("The page " + pageName + " has expired. You will be logged out from this page.");
+              
+              // If the current page is expired, log the user out
+              if (window.location.pathname.includes(pageName)) {
+                firebase.auth().signOut().then(() => {
+                  location.replace("index.html"); // Redirect to login page
+                });
+              }
+            }
+          });
+        });
+      } else {
+        alert("User not found in the database.");
+        firebase.auth().signOut().then(() => {
+          location.replace("index.html"); // Redirect to login page
+        });
+      }
+    })
+    .catch(error => {
+      console.error("Error checking expiry:", error.message);
+    });
+}
+
+
+
+
+
+
+    // Periodic expiry check
+    function monitorExpiry(user) {
+      setInterval(() => {
+        checkExpiry(user);
+      }, 60000); // Check every 60 seconds
+    } </script>
+
+<script>document.addEventListener("DOMContentLoaded", function() {
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+});
+
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}</script>
+</body>
+</html>
