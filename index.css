@@ -127,6 +127,11 @@ body {
     font-size: 16px;
     padding: 10px;
     border-radius: 4px;
+    white-space: nowrap;  /* Prevents button text from wrapping */
+}
+
+.list-group-item .btn {
+    white-space: nowrap;  /* Prevents button text in list from wrapping */
 }
 
 /* List items styling */
