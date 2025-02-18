@@ -101,29 +101,29 @@ body {
 
 
 /* Add responsiveness to modal */
-/* Ensure modal has a clean and centered look on all screens */
-/* Modal dialog styling */
+/* Modal Dialog */
 .modal-dialog {
     max-width: 100%;
     width: 90%;
     margin: auto;
-    padding: 20px;
 }
 
-/* Make modal body scrollable */
+/* Modal Body */
 .modal-body {
-    max-height: 300px;    /* Adjust max height for better control */
-    overflow-y: auto;     /* Allow vertical scrolling when content overflows */
+    max-height: 400px;    /* Set max-height to keep content contained */
+    overflow-y: auto;     /* Enable vertical scrolling if content overflows */
     padding: 10px;
 }
 
-/* List items should wrap text and not overflow */
+/* List items styling */
 .list-group-item {
-    word-wrap: break-word;  /* Wrap long text */
-    white-space: normal;    /* Prevent text overflow */
-    padding: 15px;          /* Space out items */
-    font-size: 16px;        /* Make text larger for readability */
-    line-height: 1.5;       /* Better spacing for multi-line items */
+    word-wrap: break-word;  /* Wrap text inside the list */
+    white-space: normal;    /* Allow line breaks */
+    padding: 10px 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    display: block;         /* Ensure list items take up the full width */
+    overflow: hidden;       /* Prevent any unwanted horizontal overflow */
 }
 
 /* Modal Header Styling */
@@ -134,13 +134,16 @@ body {
     border-radius: 8px 8px 0 0;
 }
 
-/* Modal title styling */
-.modal-title {
-    font-size: 18px;
-    font-weight: bold;
+/* Modal Footer Button */
+.modal-footer button {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 4px;
 }
 
-/* Button styling in modal */
+/* Button Styling */
 .btn-primary {
     background-color: #007bff;
     border: none;
@@ -154,23 +157,7 @@ body {
     background-color: #0056b3;
 }
 
-/* Footer button styling */
-.modal-footer button {
-    width: 100%;
-    margin-top: 10px;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
-}
-
-/* Close button styling */
-.btn-close {
-    background-color: transparent;
-    border: none;
-    font-size: 18px;
-}
-
-/* Mobile responsiveness */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .modal-dialog {
         width: 95%;
