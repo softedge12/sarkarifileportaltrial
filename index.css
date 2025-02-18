@@ -92,3 +92,28 @@ body {
     z-index: 1000;
 }
 
+
+/* Add responsiveness to modal */
+.modal-dialog {
+    max-width: 100%;
+    width: 90%; /* Adjust width to fit smaller screens */
+}
+
+.modal-body {
+    max-height: 400px; /* Set a maximum height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Adjust page list items */
+.list-group-item {
+    word-wrap: break-word; /* Ensure long text wraps within the container */
+    white-space: normal; /* Prevent text from being cut off */
+}
+
+/* Make sure buttons inside the modal are mobile-friendly */
+.modal-footer button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+
