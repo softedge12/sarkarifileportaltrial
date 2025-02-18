@@ -91,3 +91,9 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1000;
 }
+
+#pageList span {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
