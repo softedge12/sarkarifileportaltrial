@@ -1,0 +1,30 @@
+{
+  "subjects": [
+    {
+      "name": "Mathematics",
+      "chapters": [
+        {
+          "name": "Algebra",
+          "pdfs": ["algebra1.pdf", "algebra2.pdf"]
+        },
+        {
+          "name": "Geometry",
+          "pdfs": ["geometry1.pdf", "geometry2.pdf"]
+        },
+        {
+          "name": "Calculus",
+          "pdfs": ["calculus1.pdf", "calculus2.pdf"]
+        }
+      ]
+    },
+    {
+      "name": "Science",
+      "chapters": [
+        {
+          "name": "Physics",
+          "pdfs": ["physics1.pdf", "physics2.pdf"]
+        }
+      ]
+    }
+  ]
+}
