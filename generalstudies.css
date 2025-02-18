@@ -69,11 +69,14 @@ body {
 /* Section Styles */
 .section {
   width: 100%;
+  min-height: 100vh; /* पूरी स्क्रीन के हिसाब से ऊँचाई */
   padding: 20px;
   background: white;
-  overflow-y: auto;
+  display: flex;  /* फ्लेक्सबॉक्स का उपयोग */
+  flex-direction: column;  /* कंटेंट को वर्टिकली व्यवस्थित करने के लिए */
+  justify-content: center;  /* वर्टिकली सेंटर */
+  align-items: center;  /* होरिजॉन्टली सेंटर */
   text-align: center;
-  position: relative; /* Remove position absolute */
 }
 
 .section h1 {
