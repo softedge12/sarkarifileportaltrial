@@ -113,17 +113,20 @@ body {
     max-height: 400px;    /* Set max-height to keep content contained */
     overflow-y: auto;     /* Enable vertical scrolling if content overflows */
     padding: 10px;
+    word-wrap: break-word;  /* Wrap text in the content */
+    white-space: normal;    /* Allow text to wrap */
 }
 
 /* List items styling */
 .list-group-item {
     word-wrap: break-word;  /* Wrap text inside the list */
-    white-space: normal;    /* Allow line breaks */
+    white-space: normal;    /* Ensure text wraps */
     padding: 10px 15px;
     font-size: 16px;
     line-height: 1.5;
     display: block;         /* Ensure list items take up the full width */
     overflow: hidden;       /* Prevent any unwanted horizontal overflow */
+    word-break: break-word; /* Prevent text overflow */
 }
 
 /* Modal Header Styling */
