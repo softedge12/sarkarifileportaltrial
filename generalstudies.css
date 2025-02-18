@@ -100,6 +100,14 @@ iframe {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    padding-top: 50px; /* Reduce padding-top on mobile */
+  }
+
+  .navbar {
+    padding: 8px 15px; /* Adjust navbar padding on mobile */
+  }
+
   .menu-toggle {
     font-size: 14px;
     padding: 8px 15px;
