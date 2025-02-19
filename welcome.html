@@ -32,44 +32,8 @@
     <h1>Home Section</h1>
     <p>Welcome to the home section. Explore PDFs here.</p>
 
-    <h2>PDF Viewer (Home)</h2>
-    <div id="pdfViewerHome"></div>
-
-    <script>
-        // GitHub Repository Base URL for Home Section
-        const githubBaseURL_Home = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/";
-
-        // PDF Path for Home Section
-        const subjectHome = "Mathematics";  
-        const chapterHome = "Algebra";      
-        const pdfNameHome = "algebra1.pdf"; 
-
-        // Construct Home PDF URL
-        const pdfUrlHome = `${githubBaseURL_Home}${subjectHome}/${chapterHome}/${pdfNameHome}`;
-
-        function displayPDFHome(pdfUrl) {
-            const pdfViewer = document.getElementById("pdfViewerHome");
-            pdfViewer.innerHTML = ''; 
-
-            if (pdfUrl) {
-                const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
-
-                const iframe = document.createElement("iframe");
-                iframe.src = googleDocsUrl;
-                iframe.width = "100%";
-                iframe.height = "600px";
-                iframe.style.border = "none";
-                iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
-
-                pdfViewer.appendChild(iframe);
-            } else {
-                alert("PDF File Not Found!");
-            }
-        }
-
-        // Load Home PDF
-        displayPDFHome(pdfUrlHome);
-    </script>
+  <iframe src="https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/Mathematics/Algebra/algebra1.pdf"
+        width="100%" height="600px" style="border: none;"></iframe></div>
 </div>
 
 
