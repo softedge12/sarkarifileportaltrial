@@ -1,0 +1,23 @@
+{
+  "history": {
+    "part1": {
+      "quiz1": "gsquizsubjects/history/part1/history1quiz.html",
+      "quiz2": "gsquizsubjects/history/part1/history2quiz.html",
+      "quiz3": "subjects/history/part1/history3quiz.html"
+    },
+    "part2": {
+      "quiz1": "gsquizsubjects/history/part2/history(2)1quiz.html",
+      "quiz2": "gsquizsubjects/history/part2/history(2)2quiz.html"
+    }
+  },
+  "math": {
+    "part1": {
+      "quiz1": "gsquizsubjects/math/part1/math1quiz (1).html",
+      "quiz2": "subjects/math/part1/math1quiz (2).html"
+    },
+    "part2": {
+      "quiz1": "gsquizsubjects/math/part2/math2 (1).html",
+      "quiz2": "gsquizsubjects/math/part2/math2 (2).html"
+    }
+  }
+}
