@@ -11,7 +11,183 @@
   <div class="section">
     <h1>Quiz Section</h1>
     <p>Test your knowledge with our fun and interactive quizzes!</p>
+     <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      background-color: #e0f7fa;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      padding-top: 10px;
+    }
+
+    .dropdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+    .dropdown-container select {
+      padding: 10px;
+      font-size: 14px;
+      margin: 5px;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    #pdfViewer {
+      margin-top: 20px;
+      width: 100%;
+      height: 700px;
+      border: 1px solid #ddd;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .view-pdf-btn {
+      background-color: #007bff;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-pdf-btn:hover {
+      background-color: #008cff;
+    }
+
+    @media (max-width: 768px) {
+      .dropdown-container {
+        flex-direction: column;
+      }
+
+      .dropdown-container select {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
    
+<body>
+  <h1>Mock Test Quiz</h1>
+
+  <!-- ड्रॉपडाउन मेनू -->
+  <select id="subjectDropdown">
+    <option>Select Subject</option>
+  </select>
+
+  <select id="partDropdown" disabled>
+    <option>Select Part</option>
+  </select>
+
+  <select id="quizDropdown" disabled>
+    <option>Select Quiz</option>
+  </select>
+
+  <!-- क्विज़ दिखाने के लिए iframe -->
+  <iframe id="quizIframe"></iframe>
+
+  <!-- डेटा लोडर -->
+  <div id="loader">Loading...</div>
+
+  <script>
+    // JSON फाइल से डेटा लोड करें
+    fetch("gsquizfolder_structure.json")
+      .then((response) => response.json())
+      .then((data) => {
+        const subjectDropdown = document.getElementById("subjectDropdown");
+        const partDropdown = document.getElementById("partDropdown");
+        const quizDropdown = document.getElementById("quizDropdown");
+        const loader = document.getElementById("loader");
+        const iframe = document.getElementById("quizIframe");
+
+        // विषय लोड करें
+        for (const subject in data) {
+          const option = document.createElement("option");
+          option.value = subject;
+          option.textContent = subject;
+          subjectDropdown.appendChild(option);
+        }
+
+        subjectDropdown.addEventListener("change", () => {
+          const selectedSubject = subjectDropdown.value;
+          partDropdown.innerHTML = "<option>Select Part</option>";
+          quizDropdown.innerHTML = "<option>Select Quiz</option>";
+          quizDropdown.disabled = true;
+          iframe.src = "";
+          if (selectedSubject !== "Select Subject") {
+            loader.style.display = "block";
+            partDropdown.disabled = false;
+
+            // पार्ट्स लोड करें
+            setTimeout(() => {
+              const parts = data[selectedSubject];
+              for (const part in parts) {
+                const option = document.createElement("option");
+                option.value = part;
+                option.textContent = part;
+                partDropdown.appendChild(option);
+              }
+              loader.style.display = "none";
+            }, 500); // थोड़ा विलंब (डेमो के लिए)
+          }
+        });
+
+        partDropdown.addEventListener("change", () => {
+          const selectedSubject = subjectDropdown.value;
+          const selectedPart = partDropdown.value;
+          quizDropdown.innerHTML = "<option>Select Quiz</option>";
+          iframe.src = "";
+          if (selectedPart !== "Select Part") {
+            loader.style.display = "block";
+            quizDropdown.disabled = false;
+
+            // क्विज़ लोड करें
+            setTimeout(() => {
+              const quizzes = data[selectedSubject][selectedPart];
+              for (const quiz in quizzes) {
+                const option = document.createElement("option");
+                option.value = quizzes[quiz];
+                option.textContent = quiz;
+                quizDropdown.appendChild(option);
+              }
+              loader.style.display = "none";
+            }, 500); // थोड़ा विलंब (डेमो के लिए)
+          }
+        });
+
+        quizDropdown.addEventListener("change", () => {
+          const selectedQuiz = quizDropdown.value;
+          if (selectedQuiz !== "Select Quiz") {
+            iframe.src = selectedQuiz;
+          }
+        });
+      })
+      .catch((error) => console.error("Error loading JSON:", error));
+  </script>
+
+
+</body>
+
+
+
+
+
+   
+   
+  </div>
 
 
 
