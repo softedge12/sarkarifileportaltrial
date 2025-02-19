@@ -54,7 +54,46 @@
     <h1>Notifications Section</h1>
     <p>Stay updated with the latest news and announcements.</p>
     
-  <center><iframe src="https://softedge12.github.io/quizhtmlnewjson/" width="100%" height="600" style="border: none; overflow: auto;" oncontextmenu="return false;" sandbox="allow-scripts allow-same-origin"></iframe></center>
+  <title>Single Audio Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+    audio {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+
+  <h1>history1</h1>
+  
+  <!-- ऑडियो प्लेयर -->
+  <audio id="audioPlayer" controls controlsList="nodownload"></audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("contextmenu", function (event) {
+        event.preventDefault(); // Right Click Disable
+      });
+
+      // JSON से ऑडियो फाइल लोड करें
+      fetch("sphistory1.json")
+        .then(response => response.json())
+        .then(data => {
+          const audioPlayer = document.getElementById("audioPlayer");
+          audioPlayer.src = data.audioFile; // JSON से ऑडियो फ़ाइल सेट करें
+        })
+        .catch(error => console.error("Error loading JSON:", error));
+    });
+  </script>
+
+</body>
 
 
 
