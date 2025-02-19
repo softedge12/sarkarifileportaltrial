@@ -27,30 +27,29 @@
     </div>
   </div>
 
-  <!-- Home Section -->
-<div class="section active" id="home">
-    <h1>Welcome to the Educational Website</h1>
-    <p>This is the home section. Explore our resources to learn and grow!</p>
+ <!-- Home Section -->
+<div class="section" id="home">
+    <h1>Home Section</h1>
+    <p>Welcome to the home section. Explore PDFs here.</p>
 
-    <h2>PDF Viewer</h2>
+    <h2>PDF Viewer (Home)</h2>
     <div id="pdfViewerHome"></div>
 
     <script>
-        // GitHub Repository Base URL
-        const githubBaseURL = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/";
+        // GitHub Repository Base URL for Home Section
+        const githubBaseURL_Home = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/";
 
-        // मैन्युअली सेट की गई PDF फ़ाइल का पथ
-        const subjectHome = "Mathematics";  // Subject Name
-        const chapterHome = "Algebra";      // Chapter Name
-        const pdfNameHome = "algebra1.pdf"; // PDF File Name
+        // PDF Path for Home Section
+        const subjectHome = "Mathematics";  
+        const chapterHome = "Algebra";      
+        const pdfNameHome = "algebra1.pdf"; 
 
-        // PDF का पूरा URL बनाना
-        const pdfUrlHome = `${githubBaseURL}${subjectHome}/${chapterHome}/${pdfNameHome}`;
+        // Construct Home PDF URL
+        const pdfUrlHome = `${githubBaseURL_Home}${subjectHome}/${chapterHome}/${pdfNameHome}`;
 
-        // Google Docs Viewer के माध्यम से PDF दिखाना
         function displayPDFHome(pdfUrl) {
             const pdfViewer = document.getElementById("pdfViewerHome");
-            pdfViewer.innerHTML = ''; // पहले का कंटेंट हटाएं
+            pdfViewer.innerHTML = ''; 
 
             if (pdfUrl) {
                 const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
@@ -68,10 +67,11 @@
             }
         }
 
-        // PDF दिखाने के लिए फ़ंक्शन कॉल करें
+        // Load Home PDF
         displayPDFHome(pdfUrlHome);
     </script>
 </div>
+
 
 
   <!-- Quiz Section -->
@@ -124,25 +124,24 @@
     <h1>Books Section</h1>
     <p>Discover a variety of educational books to enhance your skills.</p>
 
-    <h2>PDF Viewer</h2>
+    <h2>PDF Viewer (Book)</h2>
     <div id="pdfViewerBook"></div>
 
     <script>
-        // GitHub Repository Base URL
-        const githubBaseURL = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsummarysubjects/";
+        // GitHub Repository Base URL for Book Section
+        const githubBaseURL_Book = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsummarysubjects/";
 
-        // मैन्युअली सेट की गई PDF फ़ाइल का पथ
-        const subjectBook = "Mathematics";  // Subject Name
-        const chapterBook = "Algebra";      // Chapter Name
-        const pdfNameBook = "algebra1.pdf"; // PDF File Name
+        // PDF Path for Book Section
+        const subjectBook = "Mathematics";  
+        const chapterBook = "Algebra";      
+        const pdfNameBook = "algebra1.pdf"; 
 
-        // PDF का पूरा URL बनाना
-        const pdfUrlBook = `${githubBaseURL}${subjectBook}/${chapterBook}/${pdfNameBook}`;
+        // Construct Book PDF URL
+        const pdfUrlBook = `${githubBaseURL_Book}${subjectBook}/${chapterBook}/${pdfNameBook}`;
 
-        // Google Docs Viewer के माध्यम से PDF दिखाना
         function displayPDFBook(pdfUrl) {
             const pdfViewer = document.getElementById("pdfViewerBook");
-            pdfViewer.innerHTML = ''; // पहले का कंटेंट हटाएं
+            pdfViewer.innerHTML = ''; 
 
             if (pdfUrl) {
                 const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
@@ -160,11 +159,10 @@
             }
         }
 
-        // PDF दिखाने के लिए फ़ंक्शन कॉल करें
+        // Load Book PDF
         displayPDFBook(pdfUrlBook);
     </script>
 </div>
-
 
   <!-- Notification Section -->
   <div class="section" id="notification">
