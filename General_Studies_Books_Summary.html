@@ -11,8 +11,208 @@
   <div class="section">
     <h1>Books Section</h1>
     <p>Discover a variety of educational books to enhance your skills.</p>
-    <center><iframe src="https://softedge12.github.io/lessonpdftrial/" width="100%" height="600" style="border: none;"></iframe></center>
+   <title>PDF Viewer with Scroll</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      background-color: #e0f7fa;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      padding-top: 10px;
+    }
+
+    .dropdown-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 10px 0;
+      width: 100%;
+    }
+
+    .dropdown-container select {
+      padding: 10px;
+      font-size: 14px;
+      margin: 5px;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    #pdfViewer {
+      margin-top: 20px;
+      width: 100%;
+      height: 700px;
+      border: 1px solid #ddd;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .view-pdf-btn {
+      background-color: #007bff;
+      padding: 10px 20px;
+      font-size: 14px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .view-pdf-btn:hover {
+      background-color: #008cff;
+    }
+
+    @media (max-width: 768px) {
+      .dropdown-container {
+        flex-direction: column;
+      }
+
+      .dropdown-container select {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+   
+<body oncontextmenu="return false;"> <!-- राइट-क्लिक ब्लॉक -->
+ <center> <div class="dropdown-container">
+    <select id="subjectDropdown" onchange="onSubjectChange()">
+      <option value="">Select Subject</option>
+    </select>
+
+    <select id="chapterDropdown" onchange="onChapterChange()">
+      <option value="">Select Chapter</option>
+    </select>
+
+    <select id="pdfDropdown">
+      <option value="">Select PDF</option>
+    </select>
+
+    <button class="view-pdf-btn" onclick="viewPDF()">View PDF</button>
   </div>
+
+  <div id="pdfViewer"></div></center>
+
+  <script>
+    const githubBaseURL = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/";
+    const jsonURL = "https://softedge12.github.io/sarkarifileportaltrial/gspdfdata.json";
+
+    function fetchJSONData() {
+      fetch(jsonURL)
+        .then(response => response.json())
+        .then(data => loadSubjectDropdown(data))
+        .catch(error => console.error('Error fetching JSON:', error));
+    }
+
+    function loadSubjectDropdown(data) {
+      var subjectDropdown = document.getElementById("subjectDropdown");
+      subjectDropdown.innerHTML = '<option value="">Select Subject</option>';
+
+      data.subjects.forEach(function(subject) {
+        var option = document.createElement("option");
+        option.value = subject.name;
+        option.textContent = subject.name;
+        subjectDropdown.appendChild(option);
+      });
+    }
+
+    function onSubjectChange() {
+      var subject = document.getElementById("subjectDropdown").value;
+      fetch(jsonURL)
+        .then(response => response.json())
+        .then(data => {
+          const chapters = data.subjects.find(subj => subj.name === subject)?.chapters || [];
+          loadChapterDropdown(chapters);
+        });
+    }
+
+    function loadChapterDropdown(chapterList) {
+      var chapterDropdown = document.getElementById("chapterDropdown");
+      chapterDropdown.innerHTML = '<option value="">Select Chapter</option>';
+      chapterList.forEach(function(chapter) {
+        var option = document.createElement("option");
+        option.value = chapter.name;
+        option.textContent = chapter.name;
+        chapterDropdown.appendChild(option);
+      });
+    }
+
+    function onChapterChange() {
+      var subject = document.getElementById("subjectDropdown").value;
+      var chapter = document.getElementById("chapterDropdown").value;
+
+      fetch(jsonURL)
+        .then(response => response.json())
+        .then(data => {
+          const pdfs = data.subjects
+            .find(subj => subj.name === subject)
+            ?.chapters.find(chap => chap.name === chapter)?.pdfs || [];
+          loadPDFDropdown(pdfs);
+        });
+    }
+
+    function loadPDFDropdown(pdfList) {
+      var pdfDropdown = document.getElementById("pdfDropdown");
+      pdfDropdown.innerHTML = '<option value="">Select PDF</option>';
+      pdfList.forEach(function(pdf) {
+        var option = document.createElement("option");
+        option.value = pdf;
+        option.textContent = pdf;
+        pdfDropdown.appendChild(option);
+      });
+    }
+
+    function viewPDF() {
+      var subject = document.getElementById("subjectDropdown").value;
+      var chapter = document.getElementById("chapterDropdown").value;
+      var pdfName = document.getElementById("pdfDropdown").value;
+
+      if (!subject || !chapter || !pdfName) {
+        alert("Please select Subject, Chapter, and PDF.");
+        return;
+      }
+
+      var pdfUrl = `${githubBaseURL}${subject}/${chapter}/${pdfName}`;
+      displayPDF(pdfUrl);
+    }
+
+    function displayPDF(pdfUrl) {
+      var pdfViewer = document.getElementById("pdfViewer");
+      pdfViewer.innerHTML = ''; // Clear previous content
+
+      if (pdfUrl) {
+        // Google Docs Viewer URL for embedding PDFs
+        var googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
+
+        // Create an iframe to display the PDF through Google Docs Viewer
+        var iframe = document.createElement("iframe");
+        iframe.src = googleDocsUrl;
+        iframe.width = "100%";
+        iframe.height = "100%";
+        iframe.style.border = "none";
+        iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
+        iframe.setAttribute("oncontextmenu", "return false;");
+
+        // Append iframe to the pdfViewer div
+        pdfViewer.appendChild(iframe);
+      } else {
+        alert("PDF File Not Found!");
+      }
+    }
+
+    // Initialize Data Fetch
+    fetchJSONData();
+  </script>
+</body>
+  </div>
+  
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth-compat.js"></script>
