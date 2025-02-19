@@ -125,7 +125,49 @@
   <div class="section" id="book">
     <h1>Books Section</h1>
     <p>Discover a variety of educational books to enhance your skills.</p>
-     
+     <body>
+
+    <h2>PDF Viewer</h2>
+    <div id="pdfViewer"></div>
+
+    <script>
+        // GitHub Repository Base URL
+        const githubBaseURL = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/";
+
+        // मैन्युअली सेट की गई PDF फ़ाइल का पथ
+        const subject = "Mathematics";  // Subject Name
+        const chapter = "Algebra";      // Chapter Name
+        const pdfName = "algebra1.pdf"; // PDF File Name
+
+        // PDF का पूरा URL बनाना
+        const pdfUrl = `${githubBaseURL}${subject}/${chapter}/${pdfName}`;
+
+        // Google Docs Viewer के माध्यम से PDF दिखाना
+        function displayPDF(pdfUrl) {
+            const pdfViewer = document.getElementById("pdfViewer");
+            pdfViewer.innerHTML = ''; // पहले का कंटेंट हटाएं
+
+            if (pdfUrl) {
+                const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
+
+                const iframe = document.createElement("iframe");
+                iframe.src = googleDocsUrl;
+                iframe.width = "100%";
+                iframe.height = "100%";
+                iframe.style.border = "none";
+                iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
+
+                pdfViewer.appendChild(iframe);
+            } else {
+                alert("PDF File Not Found!");
+            }
+        }
+
+        // PDF दिखाने के लिए फ़ंक्शन कॉल करें
+        displayPDF(pdfUrl);
+    </script>
+
+</body> 
     
   </div>
 
