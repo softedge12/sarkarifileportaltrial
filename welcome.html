@@ -31,55 +31,7 @@
   <div class="section active" id="home">
     <h1>Welcome to the Educational Website</h1>
     <p>This is the home section. Explore our resources to learn and grow!</p>
-    <title>Single PDF Viewer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #e0f7fa;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    #pdfViewer {
-      width: 100%;
-      height: 90vh;
-      border: 1px solid #ddd;
-    }
-  </style>
-</head>
-<body oncontextmenu="return false;">
-  <div id="pdfViewer"></div>
-
-  <script>
-    const githubBaseURL = "https://softedge12.github.io/lessonpdftrial/gspdfsubjects/";
-    const subject = "Mathematics";
-    const chapter = "Algebra";
-    const pdfName = "algebra1.pdf";
-
-    function displayPDF() {
-      const pdfUrl = `${githubBaseURL}${subject}/${chapter}/${pdfName}`;
-      const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
-
-      const iframe = document.createElement("iframe");
-      iframe.src = googleDocsUrl;
-      iframe.width = "100%";
-      iframe.height = "100%";
-      iframe.style.border = "none";
-      iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
-      iframe.setAttribute("oncontextmenu", "return false;");
-
-      document.getElementById("pdfViewer").appendChild(iframe);
-    }
-
-    displayPDF();
-  </script>
-</body>
+   
   </div>
 
   <!-- Quiz Section -->
@@ -131,55 +83,7 @@
   <div class="section" id="book">
     <h1>Books Section</h1>
     <p>Discover a variety of educational books to enhance your skills.</p>
-     <title>Single PDF Viewer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #e0f7fa;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    #pdfViewer {
-      width: 100%;
-      height: 90vh;
-      border: 1px solid #ddd;
-    }
-  </style>
-</head>
-<body oncontextmenu="return false;">
-  <div id="pdfViewer"></div>
-
-  <script>
-    const githubBaseURL = "https://softedge12.github.io/lessonpdftrial/gspdfsubjects/";
-    const subject = "Mathematics";
-    const chapter = "Algebra";
-    const pdfName = "algebra1.pdf";
-
-    function displayPDF() {
-      const pdfUrl = `${githubBaseURL}${subject}/${chapter}/${pdfName}`;
-      const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
-
-      const iframe = document.createElement("iframe");
-      iframe.src = googleDocsUrl;
-      iframe.width = "100%";
-      iframe.height = "100%";
-      iframe.style.border = "none";
-      iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
-      iframe.setAttribute("oncontextmenu", "return false;");
-
-      document.getElementById("pdfViewer").appendChild(iframe);
-    }
-
-    displayPDF();
-  </script>
-</body>
+     
     
   </div>
 
