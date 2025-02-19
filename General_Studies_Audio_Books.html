@@ -11,7 +11,102 @@
   <div class="section">
     <h1>Notifications Section</h1>
     <p>Stay updated with the latest news and announcements.</p>
-    <center><iframe src="https://softedge12.github.io/quizhtmlnewjson/" width="100%" height="600" style="border: none;"></iframe></center>
+    <title>Audio Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+    select, audio {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;">
+
+  <h1>Audio Player</h1>
+
+  <select id="subjectDropdown">
+    <option>Select Subject</option>
+  </select>
+
+  <select id="partDropdown" disabled>
+    <option>Select Part</option>
+  </select>
+
+  <select id="quizDropdown" disabled>
+    <option>Select Quiz</option>
+  </select>
+
+  <audio id="audioPlayer" controls controlsList="nodownload"></audio>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("contextmenu", function (event) {
+        event.preventDefault(); // Right Click Disable
+      });
+
+      fetch("gsaudiobookfolder_structure.json")
+        .then(response => response.json())
+        .then(data => {
+          const subjectDropdown = document.getElementById("subjectDropdown");
+          const partDropdown = document.getElementById("partDropdown");
+          const quizDropdown = document.getElementById("quizDropdown");
+          const audioPlayer = document.getElementById("audioPlayer");
+
+          for (const subject in data) {
+            const option = document.createElement("option");
+            option.value = subject;
+            option.textContent = subject;
+            subjectDropdown.appendChild(option);
+          }
+
+          subjectDropdown.addEventListener("change", () => {
+            partDropdown.innerHTML = "<option>Select Part</option>";
+            quizDropdown.innerHTML = "<option>Select Quiz</option>";
+            quizDropdown.disabled = true;
+            audioPlayer.src = "";
+            if (subjectDropdown.value !== "Select Subject") {
+              partDropdown.disabled = false;
+              for (const part in data[subjectDropdown.value]) {
+                const option = document.createElement("option");
+                option.value = part;
+                option.textContent = part;
+                partDropdown.appendChild(option);
+              }
+            }
+          });
+
+          partDropdown.addEventListener("change", () => {
+            quizDropdown.innerHTML = "<option>Select Quiz</option>";
+            audioPlayer.src = "";
+            if (partDropdown.value !== "Select Part") {
+              quizDropdown.disabled = false;
+              for (const quiz in data[subjectDropdown.value][partDropdown.value]) {
+                const option = document.createElement("option");
+                option.value = data[subjectDropdown.value][partDropdown.value][quiz];
+                option.textContent = quiz;
+                quizDropdown.appendChild(option);
+              }
+            }
+          });
+
+          quizDropdown.addEventListener("change", () => {
+            if (quizDropdown.value !== "Select Quiz") {
+              audioPlayer.src = quizDropdown.value;
+            }
+          });
+        })
+        .catch(error => console.error("Error loading JSON:", error));
+    });
+  </script>
+
+</body>
   </div>
    <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
