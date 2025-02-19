@@ -1,0 +1,23 @@
+{
+  "history": {
+    "part1": {
+      "quiz1": "gsaudiobookfolder/history/part1/history1quiz.mp3", 
+      "quiz2": "gsaudiobookfolder/history/part1/history2quiz.mp3", 
+      "quiz3": "gsaudiobookfolder/history/part1/history3quiz.mp3" 
+    },
+    "part2": {
+      "quiz1": "gsaudiobookfolder/history/part2/history(2)1quiz.mp3", 
+      "quiz2": "gsaudiobookfolder/history/part2/history(2)2quiz.mp3" 
+    }
+  },
+  "math": {
+    "part1": {
+      "quiz1": "gsaudiobookfolder/math/part1/math1quiz (1).mp3", 
+      "quiz2": "gsaudiobookfolder/math/part1/math1quiz (2).mp3" 
+    },
+    "part2": {
+      "quiz1": "gsaudiobookfolder/math/part2/math2 (1).mp3", 
+      "quiz2": "gsaudiobookfolder/math/part2/math2 (2).mp3" 
+    }
+  }
+}
