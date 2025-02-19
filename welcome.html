@@ -119,30 +119,29 @@
 </html>
   </div>
 
-  <!-- Book Section -->
-  <div class="section" id="book">
+<!-- Book Section -->
+<div class="section" id="book">
     <h1>Books Section</h1>
     <p>Discover a variety of educational books to enhance your skills.</p>
-     <body>
 
     <h2>PDF Viewer</h2>
-    <div id="pdfViewer"></div>
+    <div id="pdfViewerBook"></div>
 
     <script>
         // GitHub Repository Base URL
         const githubBaseURL = "https://softedge12.github.io/sarkarifileportaltrial/gspdfsubjects/";
 
         // मैन्युअली सेट की गई PDF फ़ाइल का पथ
-        const subject = "Mathematics";  // Subject Name
-        const chapter = "Algebra";      // Chapter Name
-        const pdfName = "algebra1.pdf"; // PDF File Name
+        const subjectBook = "Mathematics";  // Subject Name
+        const chapterBook = "Algebra";      // Chapter Name
+        const pdfNameBook = "algebra1.pdf"; // PDF File Name
 
         // PDF का पूरा URL बनाना
-        const pdfUrl = `${githubBaseURL}${subject}/${chapter}/${pdfName}`;
+        const pdfUrlBook = `${githubBaseURL}${subjectBook}/${chapterBook}/${pdfNameBook}`;
 
         // Google Docs Viewer के माध्यम से PDF दिखाना
-        function displayPDF(pdfUrl) {
-            const pdfViewer = document.getElementById("pdfViewer");
+        function displayPDFBook(pdfUrl) {
+            const pdfViewer = document.getElementById("pdfViewerBook");
             pdfViewer.innerHTML = ''; // पहले का कंटेंट हटाएं
 
             if (pdfUrl) {
@@ -151,7 +150,7 @@
                 const iframe = document.createElement("iframe");
                 iframe.src = googleDocsUrl;
                 iframe.width = "100%";
-                iframe.height = "100%";
+                iframe.height = "600px";
                 iframe.style.border = "none";
                 iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
 
@@ -162,12 +161,10 @@
         }
 
         // PDF दिखाने के लिए फ़ंक्शन कॉल करें
-        displayPDF(pdfUrl);
+        displayPDFBook(pdfUrlBook);
     </script>
+</div>
 
-</body> 
-    
-  </div>
 
   <!-- Notification Section -->
   <div class="section" id="notification">
