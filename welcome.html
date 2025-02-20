@@ -31,42 +31,7 @@
   <div class="section active" id="home">
     <h1>Welcome to the Educational Website</h1>
     <p>This is the home section. Explore our resources to learn and grow!</p>
-    <script>
-        // GitHub Repository Base URL
-        const githubBaseURL = "https://softedge12.github.io//sarkarifileportaltrial//gspdfsubjects/";
-
-        // मैन्युअली सेट की गई PDF फ़ाइल का पथ
-        const subject = "Mathematics";  // Subject Name
-        const chapter = "Algebra";      // Chapter Name
-        const pdfName = "algebra1.pdf"; // PDF File Name
-
-        // PDF का पूरा URL बनाना
-        const pdfUrl = `${githubBaseURL}${subject}/${chapter}/${pdfName}`;
-
-        // Google Docs Viewer के माध्यम से PDF दिखाना
-        function displayPDF(pdfUrl) {
-            const pdfViewer = document.getElementById("pdfViewer");
-            pdfViewer.innerHTML = ''; // पहले का कंटेंट हटाएं
-
-            if (pdfUrl) {
-                const googleDocsUrl = `https://docs.google.com/viewer?embedded=true&url=${encodeURIComponent(pdfUrl)}`;
-
-                const iframe = document.createElement("iframe");
-                iframe.src = googleDocsUrl;
-                iframe.width = "100%";
-                iframe.height = "100%";
-                iframe.style.border = "none";
-                iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
-
-                pdfViewer.appendChild(iframe);
-            } else {
-                alert("PDF File Not Found!");
-            }
-        }
-
-        // PDF दिखाने के लिए फ़ंक्शन कॉल करें
-        displayPDF(pdfUrl);
-    </script>
+   <center><iframe src="https://drive.google.com/file/d/1rvJ8ip-KAUdlZVi-oZEOtr8vpwJHQDqi/preview?usp=sharing" width="100%" height="600" style="border: none; overflow: auto;" oncontextmenu="return false;" sandbox="allow-scripts allow-same-origin"></iframe></center>
   </div>
 
   <!-- Quiz Section -->
