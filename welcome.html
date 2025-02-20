@@ -31,8 +31,19 @@
   <div class="section active" id="home">
     <h1>Welcome to the Educational Website</h1>
     <p>This is the home section. Explore our resources to learn and grow!</p>
-   <center><iframe src="gspdfsubjects/Mathematics/Algebra/algebra1.pdf" width="100%" height="600" style="border: none; overflow: auto;" oncontextmenu="return false;" sandbox="allow-scripts allow-same-origin"></iframe></center>
+   <iframe id="pdfFrame" width="100%" height="600px" style="border: none;"></iframe>
 
+    <script>
+        // JSON फाइल से PDF का पथ लोड करें
+        fetch("sphistory1.json")
+            .then(response => response.json())
+            .then(data => {
+                const pdfUrl = encodeURIComponent(data.pdfFile);
+                const pdfViewer = `https://docs.google.com/gview?url=${pdfUrl}&embedded=true`;
+                document.getElementById("pdfFrame").src = pdfViewer;
+            })
+            .catch(error => console.error("Error loading PDF:", error));
+    </script>
   </div>
 
   <!-- Quiz Section -->
