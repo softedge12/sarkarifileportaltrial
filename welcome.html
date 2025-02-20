@@ -27,118 +27,34 @@
     </div>
   </div>
 
- <!-- Home Section -->
-<div class="section" id="home">
-    <h1>Home Section</h1>
-    <p>Welcome to the home section. Explore PDFs here.</p>
-
-
-
-</div>
-
-
-
+  <!-- Home Section -->
+  <div class="section active" id="home">
+    <h1>Welcome to the Educational Website</h1>
+    <p>This is the home section. Explore our resources to learn and grow!</p>
+    <center><iframe src="https://softedge12.github.io/lessonpdftrial/" width="100%" height="800" style="border:none;"></iframe></center>
+  </div>
 
   <!-- Quiz Section -->
   <div class="section" id="quiz">
     <h1>Quiz Section</h1>
     <p>Test your knowledge with our fun and interactive quizzes!</p>
-    <title>Single Quiz Viewer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f9;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 800px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-      iframe {
-        height: 700px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Single Quiz Viewer</h1>
-
-  <!-- क्विज़ दिखाने के लिए iframe -->
-  <iframe src="gsquizsubjects/history/part1/history3quiz.html"></iframe>
-
-</body>
-</html>
+    <iframe src="https://softedge12.github.io/quizdropdowntrial/" width="100%" height="800" style="border:1px solid black;"></iframe>
   </div>
 
-<!-- Book Section -->
-<div class="section" id="book">
+  <!-- Book Section -->
+  <div class="section" id="book">
     <h1>Books Section</h1>
     <p>Discover a variety of educational books to enhance your skills.</p>
-<center><iframe src="https://lessonpdftrial.pages.dev/" width="600" height="500" style="border: none; overflow: auto;" oncontextmenu="return false;" sandbox="allow-scripts allow-same-origin"></iframe></center>
-</div>
+     <center><iframe src="https://softedge12.github.io/lessonpdftrial/" width="100%" height="600" style="border: none; overflow: auto;" oncontextmenu="return false;" sandbox="allow-scripts allow-same-origin"></iframe></center>
+    
+  </div>
 
-
-
- 
   <!-- Notification Section -->
   <div class="section" id="notification">
     <h1>Notifications Section</h1>
     <p>Stay updated with the latest news and announcements.</p>
     
-  <title>Single Audio Player</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f4f9;
-      padding: 20px;
-    }
-    audio {
-      width: 100%;
-      max-width: 400px;
-      margin-top: 20px;
-    }
-  </style>
-</head>
-<body oncontextmenu="return false;">
-
-  <h1>history1</h1>
-  
-  <!-- ऑडियो प्लेयर -->
-  <audio id="audioPlayer" controls controlsList="nodownload"></audio>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.addEventListener("contextmenu", function (event) {
-        event.preventDefault(); // Right Click Disable
-      });
-
-      // JSON से ऑडियो फाइल लोड करें
-      fetch("sphistory1.json")
-        .then(response => response.json())
-        .then(data => {
-          const audioPlayer = document.getElementById("audioPlayer");
-          audioPlayer.src = data.audioFile; // JSON से ऑडियो फ़ाइल सेट करें
-        })
-        .catch(error => console.error("Error loading JSON:", error));
-    });
-  </script>
-
-</body>
+  <center><iframe src="https://softedge12.github.io/quizhtmlnewjson/" width="100%" height="600" style="border: none; overflow: auto;" oncontextmenu="return false;" sandbox="allow-scripts allow-same-origin"></iframe></center>
 
 
 
